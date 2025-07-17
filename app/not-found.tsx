@@ -18,11 +18,11 @@ export default function NotFound() {
       <p className="text-gray-500 mb-7">
         Either the address is wrong, or the page is no longer available.
       </p>
-      <Link
-        href="/"
-        className="px-6 py-3 bg-gray-900 text-white rounded-xl hover:bg-blue-600 transition font-bold"
-      >
-        Back to Home
+
+      <Link href="/employee">
+        <div className="px-6 py-3 bg-gray-900 text-white rounded-xl hover:bg-blue-600 transition font-bold cursor-pointer">
+          Back to Home
+        </div>
       </Link>
     </main>
   );
