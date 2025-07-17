@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 
+
 type Employee = {
   id: number;
   name: string;
@@ -8,7 +9,7 @@ type Employee = {
   salary: number;
 };
 
-export default function KaryawanPage() {
+export default function EmployeePage() {
   const [data, setData] = useState<Employee[]>([]);
   const [form, setForm] = useState({ id: 0, name: '', position: '', salary: 0 });
   const [isEdit, setIsEdit] = useState(false);
@@ -49,8 +50,9 @@ export default function KaryawanPage() {
   };
 
   return (
-    <main className="max-w-2xl mx-auto p-6">
-      <h1 className="text-2xl font-bold mb-4">Manajemen Karyawan</h1>
+    <main className="max-w-2xl mx-auto p-6 mt-20 ">
+      <h1 className="text-2xl font-bold mb-4 bg bg-gray-900 p-2 text-white">Employee Management</h1>
+ 
 
       <form onSubmit={handleSubmit} className="space-y-3 mb-6">
         <input
@@ -81,8 +83,44 @@ export default function KaryawanPage() {
           {isEdit ? 'Update' : 'Tambah'}
         </button>
       </form>
+      
 
-      <ul className="space-y-3">
+
+    <table className="min-w-full bg-white rounded shadow">
+      <thead>
+        <tr className="bg-gray-900 text-white text-left text-sm uppercase">
+          <th className="px-4 py-2">Name</th>
+          <th className="px-4 py-2">Position</th>
+          <th className="px-4 py-2">Salary</th>
+          <th className="px-4 py-2 text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((emp) => (
+          <tr key={emp.id} className="border-t">
+            <td className="px-4 py-2 font-semibold">{emp.name}</td>
+            <td className="px-4 py-2">{emp.position}</td>
+            <td className="px-4 py-2 text-gray-600">Rp {emp.salary.toLocaleString()}</td>
+            <td className="px-4 py-2 text-center space-x-2">
+              <button
+                onClick={() => handleEdit(emp)}
+                className="text-blue-600 hover:underline"
+              >
+                Edit
+              </button>
+              <button
+                onClick={() => handleDelete(emp.id)}
+                className="text-red-600 hover:underline"
+              >
+                Hapus
+              </button>
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+
+      {/* <ul className="space-y-3">
         {data.map((emp) => (
           <li key={emp.id} className="border p-3 rounded flex justify-between items-center">
             <div>
@@ -96,7 +134,7 @@ export default function KaryawanPage() {
             </div>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </main>
   );
 }
