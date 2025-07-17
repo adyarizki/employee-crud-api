@@ -64,7 +64,7 @@ export default function EmployeePage() {
         Employee Management
       </h1>
 
-      <form onSubmit={handleSubmit} className="space-y-3 mb-6">
+      <form onSubmit={handleSubmit} className="space-y-3 mb-2">
         <input
           type="text"
           placeholder="Lorem Ipsum"
@@ -94,6 +94,11 @@ export default function EmployeePage() {
           {isEdit ? 'Update' : 'Add'}
         </button>
       </form>
+      <div className="relative flex py-5 items-center">
+        <div className="flex-grow border-t border-gray-400"></div>
+          <span className="flex-shrink mx-4 text-black-600 font-bold">Employee List</span>
+        <div className="flex-grow border-t border-gray-400"></div>
+      </div>
 
       <table className="min-w-full bg-white rounded shadow">
         <thead>
