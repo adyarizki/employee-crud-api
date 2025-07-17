@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server';
 
 let employees = [
-  { id: 1, name: 'John Doe', position: 'Software Engineer', salary: 70000 },
-  { id: 2, name: 'Jane Smith', position: 'Project Manager', salary: 80000 },
-  { id: 3, name: 'Alice Johnson', position: 'UX Designer', salary: 75000 },
+  { id: 1, name: 'John Doe', position: 'Software Engineer', salary: 7000000 },
+  { id: 2, name: 'Jane Smith', position: 'Project Manager', salary: 8000000 },
+  { id: 3, name: 'Alice Johnson', position: 'UX Designer', salary: 7500000 },
 ];
 
 export async function GET(request: Request) {
